@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 
-import 'src/app.dart';
-import 'src/settings/settings_controller.dart';
-import 'src/settings/settings_service.dart';
+import 'presentation/pages/main_page.dart';
 
 void main() async {
-  // Set up the SettingsController, which will glue user settings to multiple
-  // Flutter Widgets.
-  final settingsController = SettingsController(SettingsService());
+  runApp(MainApp());
+}
 
-  // Load the user's preferred theme while the splash screen is displayed.
-  // This prevents a sudden theme change when the app is first displayed.
-  await settingsController.loadSettings();
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
-  // Run the app and pass in the SettingsController. The app listens to the
-  // SettingsController for changes, then passes it further down to the
-  // SettingsView.
-  runApp(MyApp(settingsController: settingsController));
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          // 사용자가 설정한 OS의 텍스트 크기를 무시
+          textScaler: TextScaler.noScaling,
+        ),
+        child: MainPage(),
+      ),
+    );
+  }
 }
