@@ -12,8 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -25,7 +24,7 @@ flutter:
   uses-material-design: true
 
   # Enable generation of localized Strings from arb files.
-  generate: true
+  #  generate: true
 
   assets:
     # Add assets from the images directory to the application.
