@@ -12,6 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.0.0
+  ulid: ^2.0.0
   http: ^1.2.2
 
 dev_dependencies:
